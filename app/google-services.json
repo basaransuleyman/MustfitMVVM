@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650089473040",
+    "project_id": "mustfitmvvmjetpack",
+    "storage_bucket": "mustfitmvvmjetpack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650089473040:android:b5d4425cba17dda56b9695",
+        "android_client_info": {
+          "package_name": "com.example.mustfitmvvmjetpack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650089473040-hrmck4as3e34p3nl690n85uhga7ac89q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOf-FV2laoeS2R8Z5lTphiV01jzu83l8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650089473040-hrmck4as3e34p3nl690n85uhga7ac89q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.InformationFragment">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:maxLength="15"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMan" />
+
+    <EditText
+        android:id="@+id/etNeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:hint="Neck"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/etHip"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etWeight" />
+
+    <EditText
+        android:id="@+id/etHip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:hint="Hip"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etNeck"
+        app:layout_constraintTop_toBottomOf="@+id/etWaist" />
+
+    <EditText
+        android:id="@+id/etHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Height"
+        android:inputType="numberDecimal"
+        android:maxEms="3"
+        android:maxLength="3"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/etWaist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etAge"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <EditText
+        android:id="@+id/etWaist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:hint="Waist"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/etHip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/etWeight"
+        app:layout_constraintTop_toBottomOf="@+id/etHeight" />
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:hint="Weight"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/etNeck"
+        app:layout_constraintEnd_toStartOf="@+id/etWaist"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAge" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:hint="Age"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/etWeight"
+        app:layout_constraintEnd_toStartOf="@+id/etHeight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <ImageButton
+        android:id="@+id/ivMan"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_male_24"
+        app:layout_constraintBottom_toTopOf="@+id/etName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivWoman"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ivWoman"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_female_24"
+        app:layout_constraintBottom_toTopOf="@+id/etName"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/cbLoseWeight"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="Lose weight"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbMaintainWeight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNeck" />
+
+    <CheckBox
+        android:id="@+id/cbMaintainWeight"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="Maintain weight"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbGainWeight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbLoseWeight"
+        app:layout_constraintTop_toBottomOf="@+id/etNeck" />
+
+    <CheckBox
+        android:id="@+id/cbGainWeight"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="Gain weight"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbMaintainWeight"
+        app:layout_constraintTop_toBottomOf="@+id/etNeck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="How many days a week do you train?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbMaintainWeight" />
+
+    <CheckBox
+        android:id="@+id/cbZeroDay"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:text="0"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbOneTwoDay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/cbSevenDay"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:text="7"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbFiveSixDay"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/cbFiveSixDay"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:text="5-6"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbSevenDay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbThreeFourDay"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/cbThreeFourDay"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:text="3-4"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbFiveSixDay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbOneTwoDay"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/cbOneTwoDay"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:text="1-2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/cbThreeFourDay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cbZeroDay"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbThreeFourDay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

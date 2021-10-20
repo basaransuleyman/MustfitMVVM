@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/yeseva_one"
+        android:hint="Email"
+        android:maxLines="1"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/teal_200"
+        app:hintTextColor="@color/teal_200"
+        app:shapeAppearance="@style/Cut">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yeseva_one"
+            android:maxLines="1"
+            android:textColor="@color/teal_200" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:hint="Enter password"
+        android:maxLines="1"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/teal_200"
+        app:hintTextColor="@color/teal_200"
+        app:shapeAppearance="@style/Cut">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/yeseva_one"
+            android:maxLines="1"
+            android:textColor="@color/teal_200" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Login"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="324dp" />
+
+    <Button
+        android:id="@+id/tvGoRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/yeseva_one"
+        android:text="I don't have account"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="324dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
