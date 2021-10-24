@@ -5,67 +5,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.mustfitmvvmjetpack.R
-import com.example.mustfitmvvmjetpack.databinding.FragmentInformationBinding
 import com.example.mustfitmvvmjetpack.databinding.FragmentLoginBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.mustfitmvvmjetpack.viewmodel.AuthenticationViewModel
 
 
 class LoginFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var viewModel: AuthenticationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
+        viewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        loginClickedOnLoginPage()
+        registerClickedOnLoginPage()
+        return binding.root
+    }
 
-        auth = Firebase.auth
-
+    private fun loginClickedOnLoginPage() {
         binding.loginButton.setOnClickListener {
             val email = binding.etLoginEmail.text.toString()
             val password = binding.etLoginPassword.text.toString()
-
-            if (email == "" || password == "") {
-                Toast.makeText(
-                    activity, "Email and password must not be empty",
-                    Toast.LENGTH_LONG
-                ).show()
-            } else {
-                auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
-                    Navigation.findNavController(binding.root)
-                        .navigate(LoginFragmentDirections.actionLoginFragmentToInformationFragment())
-                }.addOnFailureListener {
-                    Toast.makeText(
-                        activity, it.localizedMessage,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
+            viewModel.login(email=email, password=password)
+            Navigation.findNavController(it)
+                .navigate(LoginFragmentDirections.actionLoginFragmentToInformationFragment())
         }
+    }
 
+    private fun registerClickedOnLoginPage() {
         binding.tvGoRegister.setOnClickListener {
             Navigation.findNavController(it)
                 .navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
 
-        return binding.root
     }
-
 }

@@ -7,26 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.mustfitmvvmjetpack.R
-import com.example.mustfitmvvmjetpack.databinding.FragmentOptionBinding
+import com.example.mustfitmvvmjetpack.databinding.ActivityInformationBinding.inflate
+import com.example.mustfitmvvmjetpack.databinding.FragmentProfileBinding
 import com.example.mustfitmvvmjetpack.databinding.FragmentRecipesBinding
+import com.example.mustfitmvvmjetpack.databinding.FragmentRegisterBinding
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class RecipesFragment : Fragment() {
+        private  lateinit var  binding : FragmentRecipesBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [OptionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class OptionFragment : Fragment() {
-    private  lateinit var  binding : FragmentOptionBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentOptionBinding.inflate(inflater, container, false)
+    ): View{
+        binding = FragmentRecipesBinding.inflate(inflater, container, false)
         bottomTabNavigation()
         return binding.root
     }
@@ -35,11 +34,11 @@ class OptionFragment : Fragment() {
         binding.cnbTabNav.setOnItemSelectedListener {
             when (it) {
                 R.id.recipes -> Navigation.findNavController(binding.root)
-                    .navigate(OptionFragmentDirections.actionOptionFragmentToRecipesFragment())
+                    .navigate(RecipesFragmentDirections.actionRecipesFragmentSelf())
                 R.id.profile -> Navigation.findNavController(binding.root)
-                    .navigate(OptionFragmentDirections.actionOptionFragmentToProfileFragment())
+                    .navigate(RecipesFragmentDirections.actionRecipesFragmentToProfileFragment())
                 R.id.settings -> Navigation.findNavController(binding.root)
-                    .navigate(OptionFragmentDirections.actionOptionFragmentSelf())
+                    .navigate(RecipesFragmentDirections.actionRecipesFragmentToOptionFragment())
             }
         }
     }
