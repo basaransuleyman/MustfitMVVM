@@ -1,4 +1,4 @@
-package com.example.mustfitmvvmjetpack.data.repo
+package com.example.mustfitmvvmjetpack.repo
 
 import android.app.Application
 
