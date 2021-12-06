@@ -9,11 +9,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MustfitMVVMJetpack">
         <activity
-            android:name=".ui.Information"
+            android:name=".ui.view.DailyMenu"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.FoodDetails"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

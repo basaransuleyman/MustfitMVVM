@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.LoginFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.RegisterFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.InformationFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.InformationFragment"
         android:label="fragment_information"
         tools:layout="@layout/fragment_information" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/optionFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.OptionFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.OptionFragment"
         android:label="fragment_option"
         tools:layout="@layout/fragment_option" >
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.ProfileFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.example.mustfitmvvmjetpack.ui.RecipesFragment"
+        android:name="com.example.mustfitmvvmjetpack.ui.view.RecipesFragment"
         android:label="fragment_recipes"
         tools:layout="@layout/fragment_recipes" >
         <action

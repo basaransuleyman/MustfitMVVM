@@ -4,8 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.ProfileFragment">
+    tools:context=".ui.view.ProfileFragment">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsingToolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        app:contentScrim="@color/white"
+        android:background="@color/tabbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:titleEnabled="false"
+        app:toolbarId="@+id/toolbar">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/secondary"
+            android:fontFamily="@font/yeseva_one"
+            android:textStyle="bold"
+            android:text="PROFILE" />
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProfile"
@@ -13,16 +39,17 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/collapsingToolbarLayout" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/cnbTabNav"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#fff"
-        android:padding="8dp"
+        android:layout_height="60dp"
+        android:background="#30333b"
         android:elevation="16dp"
         app:cnb_menuResource="@menu/bottom_tab_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

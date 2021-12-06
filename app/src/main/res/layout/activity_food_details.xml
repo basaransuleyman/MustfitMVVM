@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvCalorie3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Calorie"
+        android:textColor="@color/purple_200"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/divider2"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/tvCalorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:text="156"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCalorie3"
+        app:layout_constraintStart_toStartOf="@+id/tvCalorie3"
+        app:layout_constraintTop_toBottomOf="@+id/tvCalorie3" />
+
+    <TextView
+        android:id="@+id/tvProtein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:text="14g"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvProtein2"
+        app:layout_constraintStart_toStartOf="@+id/tvProtein2"
+        app:layout_constraintTop_toBottomOf="@+id/tvProtein2" />
+
+    <TextView
+        android:id="@+id/tvProtein2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Protein"
+        android:textColor="@color/dark"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCalorie3"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/tvFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:text="36g"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvFat2"
+        app:layout_constraintStart_toStartOf="@+id/tvFat2"
+        app:layout_constraintTop_toBottomOf="@+id/tvFat2" />
+
+    <TextView
+        android:id="@+id/tvCarb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Carbohydrate"
+        android:textColor="@color/dark"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/tvProtein2"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/tvCarb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:text="24g"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCarb2"
+        app:layout_constraintStart_toStartOf="@+id/tvCarb2"
+        app:layout_constraintTop_toBottomOf="@+id/tvCarb2" />
+
+    <TextView
+        android:id="@+id/tvFat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Fat"
+        android:textColor="@color/dark"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/divider2"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/tvCarb2"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/ivSmallIcon"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        app:civ_border_color="@color/purple_500"
+        app:civ_border_width="1dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/purple_500"
+        app:civ_shadow_radius="0.5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="195dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/yeseva_one"
+        android:gravity="center"
+        android:text="Apple"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSmallIcon"
+        app:layout_constraintStart_toEndOf="@+id/ivSmallIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivSmallIcon"
+        app:layout_constraintVertical_bias="0.279" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="Generics Food"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+
+    <ImageView
+        android:id="@+id/ivFood"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSmallIcon"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/yeseva_one"
+        android:text="What's in inside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivFood" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="9dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,19 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.OptionFragment">
+    tools:context=".ui.view.OptionFragment">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsingToolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/tabbar"
+        app:contentScrim="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:titleEnabled="false"
+        app:toolbarId="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/yeseva_one"
+            android:text="OPTION"
+            android:textColor="@color/secondary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/cnbTabNav"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#fff"
+        android:layout_height="60dp"
+        android:background="#30333b"
         android:elevation="16dp"
-        android:padding="8dp"
         app:cnb_menuResource="@menu/bottom_tab_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="285dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="20dp"
+        android:text="LOGOUT"
+        app:layout_constraintBottom_toTopOf="@+id/cnbTabNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOptionFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="60dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/yeseva_one"
+        android:gravity="start"
+        android:text="FEEDBACK"
+        android:textColor="@color/teal_200"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collapsingToolbarLayout" />
+
+    <TextView
+        android:id="@+id/tvOptionAboutApp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="60dp"
+        android:fontFamily="@font/yeseva_one"
+        android:gravity="start"
+        android:text="ABOUT THIS APP"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOptionFeedback" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="60dp"
+        android:fontFamily="@font/yeseva_one"
+        android:gravity="start"
+        android:text="CONTACT"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOptionAboutApp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOptionFeedback"
+        app:layout_constraintEnd_toEndOf="@+id/tvOptionFeedback"
+        app:layout_constraintTop_toTopOf="@+id/tvOptionFeedback"
+        app:layout_constraintVertical_bias="0.461" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.692" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOptionAboutApp"
+        app:layout_constraintEnd_toEndOf="@+id/tvOptionAboutApp"
+        app:layout_constraintTop_toTopOf="@+id/tvOptionAboutApp"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/tvOptionAboutApp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOptionFeedback" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="30dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOptionAboutApp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
