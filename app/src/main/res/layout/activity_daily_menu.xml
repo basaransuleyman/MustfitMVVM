@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.view.DailyMenu">
+        tools:context=".ui.view.DailyMenuActivity">
 
         <ImageView
             android:id="@+id/ivFoodDaily"
@@ -39,7 +39,7 @@
             android:layout_marginStart="4dp"
             android:fontFamily="@font/yeseva_one"
             android:gravity="center"
-            android:text="Food name"
+            android:text=""
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/ivFoodDaily"
             app:layout_constraintTop_toTopOf="@+id/ivFoodDaily" />
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/yeseva_one"
-            android:text="53 Cal"
+            android:text=""
             app:layout_constraintEnd_toEndOf="@+id/tvFoodLabelDaily"
             app:layout_constraintHorizontal_bias="0.367"
             app:layout_constraintStart_toStartOf="@+id/tvFoodLabelDaily"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/yeseva_one"
-            android:text="kcal "
+            android:text="@string/calorie_string"
             app:layout_constraintEnd_toEndOf="@+id/tvFoodLabelDaily"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/tvCaloriesDaily"
@@ -75,7 +75,7 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/yeseva_one"
             android:gravity="center"
-            android:text="2"
+            android:text=""
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/tvCaloriesDaily"
             app:layout_constraintEnd_toStartOf="@+id/ivClear"

@@ -3,10 +3,10 @@ package com.example.mustfitmvvmjetpack.ui.view
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +19,7 @@ import java.util.*
 
 class RecipesFragment : Fragment() {
 
-    lateinit var foodAdapter: FoodAdapter
+    private lateinit var foodAdapter: FoodAdapter
     private val _viewModel by inject<FoodViewModel>()
     private lateinit var _binding: FragmentRecipesBinding
     private lateinit var _getPreferences: SharedPreferences
@@ -37,25 +37,32 @@ class RecipesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         foodAdapter = FoodAdapter(arrayListOf())
-        _getPreferences = requireActivity().getSharedPreferences("pref", MODE_PRIVATE)
-        _setPreferences = _getPreferences.edit()
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
 
-        val foodName = _getPreferences.getString("foodName", "")?.lowercase(Locale.getDefault())
-        _binding.edSearchFood.setText(foodName)
-        _viewModel.getData(foodName!!)
-
-        _binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        _binding.recyclerView.adapter = foodAdapter
-
+        initializeSharedPreferences()
+        bindingDefaultValue()
+        recyclerViewUI()
         observeLiveData()
         bottomTabNavigation()
-        refreshPage(foodName)
         searchFood()
 
         return _binding.root
     }
 
+    private fun initializeSharedPreferences(){
+        _getPreferences = requireActivity().getSharedPreferences("pref", MODE_PRIVATE)
+        _setPreferences = _getPreferences.edit()
+    }
+    private fun bindingDefaultValue(){
+        val foodName = _getPreferences.getString("foodName", "")?.lowercase(Locale.getDefault())
+        _binding.edSearchFood.setText(foodName)
+        _viewModel.getData(foodName!!)
+        refreshPage(foodName)
+    }
+    private fun recyclerViewUI(){
+        _binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        _binding.recyclerView.adapter = foodAdapter
+    }
     private fun refreshPage(foodName: String) {
         _binding.srLayout.setOnRefreshListener {
             _binding.recyclerView.visibility = View.GONE

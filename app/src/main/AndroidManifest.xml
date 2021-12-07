@@ -12,12 +12,13 @@
         android:name=".MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MustfitMVVMJetpack">
+        android:theme="@style/Theme.MustfitMVVMJetpack"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
-            android:name=".ui.view.DailyMenu"
+            android:name=".ui.view.DailyMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.FoodDetails"
+            android:name=".ui.view.FoodDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

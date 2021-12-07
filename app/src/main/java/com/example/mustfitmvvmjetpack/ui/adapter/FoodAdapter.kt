@@ -8,8 +8,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mustfitmvvmjetpack.databinding.FoodItemBinding
 import com.example.mustfitmvvmjetpack.model.FoodApiModel
-import com.example.mustfitmvvmjetpack.ui.view.DailyMenu
-import com.example.mustfitmvvmjetpack.ui.view.FoodDetails
+import com.example.mustfitmvvmjetpack.ui.view.DailyMenuActivity
+import com.example.mustfitmvvmjetpack.ui.view.FoodDetailsActivity
 import com.squareup.picasso.Picasso
 
 const val PICTURE = "Picture"
@@ -70,12 +70,12 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
                     Toast.LENGTH_LONG
                 ).show()
             } else {
-                //ERROR
+                //ERROR case
             }
         }
 
         holder.binding.btnMenu.setOnClickListener {
-            val intent = Intent(holder.itemView.context, DailyMenu::class.java)
+            val intent = Intent(holder.itemView.context, DailyMenuActivity::class.java)
             intent.putExtra(PICTURE, currentItem.hints.firstOrNull()?.food?.image)
             intent.putExtra(CALORIE, totalCalories.toString())
             intent.putExtra(NAME, currentItem.hints.firstOrNull()?.food?.label)
@@ -84,7 +84,7 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
         }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, FoodDetails::class.java)
+            val intent = Intent(holder.itemView.context, FoodDetailsActivity::class.java)
             intent.apply {
                 putExtra("Label", currentItem.hints.firstOrNull()?.food?.label)
                 putExtra("Category", currentItem.hints.firstOrNull()?.food?.category)
