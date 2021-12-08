@@ -15,6 +15,7 @@ class FoodDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityFoodDetailsBinding.inflate(layoutInflater)
         setContentView(_binding.root)
+
         bindingItems()
     }
 

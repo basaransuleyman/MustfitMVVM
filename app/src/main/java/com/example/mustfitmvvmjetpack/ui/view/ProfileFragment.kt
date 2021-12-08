@@ -1,5 +1,6 @@
 package com.example.mustfitmvvmjetpack.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,15 +40,19 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        _binding.rvProfile.layoutManager = LinearLayoutManager(activity)
-        _adapter = MustfitRecyclerAdapter(_informationArrayList)
-        _binding.rvProfile.adapter = _adapter
+
         //viewModel.getDataFromDB()
+        bindingRecyclerView()
         getDataFromDB()
         bottomTabNavigation()
         return _binding.root
+    }
+
+    private fun bindingRecyclerView(){
+        _binding.rvProfile.layoutManager = LinearLayoutManager(activity)
+        _adapter = MustfitRecyclerAdapter(_informationArrayList)
+        _binding.rvProfile.adapter = _adapter
     }
 
     private fun bottomTabNavigation() {
@@ -63,6 +68,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun getDataFromDB() {
         _firebaseAuth = Firebase.auth
         _fireStoreDB = Firebase.firestore

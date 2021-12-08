@@ -41,7 +41,7 @@ class RecipesFragment : Fragment() {
 
         initializeSharedPreferences()
         bindingDefaultValue()
-        recyclerViewUI()
+        bindingRecyclerView()
         observeLiveData()
         bottomTabNavigation()
         searchFood()
@@ -49,20 +49,23 @@ class RecipesFragment : Fragment() {
         return _binding.root
     }
 
-    private fun initializeSharedPreferences(){
+    private fun initializeSharedPreferences() {
         _getPreferences = requireActivity().getSharedPreferences("pref", MODE_PRIVATE)
         _setPreferences = _getPreferences.edit()
     }
-    private fun bindingDefaultValue(){
+
+    private fun bindingDefaultValue() {
         val foodName = _getPreferences.getString("foodName", "")?.lowercase(Locale.getDefault())
         _binding.edSearchFood.setText(foodName)
         _viewModel.getData(foodName!!)
         refreshPage(foodName)
     }
-    private fun recyclerViewUI(){
+
+    private fun bindingRecyclerView() {
         _binding.recyclerView.layoutManager = LinearLayoutManager(context)
         _binding.recyclerView.adapter = foodAdapter
     }
+
     private fun refreshPage(foodName: String) {
         _binding.srLayout.setOnRefreshListener {
             _binding.recyclerView.visibility = View.GONE
@@ -101,14 +104,14 @@ class RecipesFragment : Fragment() {
     }
 
     private fun observeLiveData() {
-        _viewModel.foodsData.observe(viewLifecycleOwner, Observer { foods ->
+        _viewModel.foodsData.observe(viewLifecycleOwner, { foods ->
             foods?.let {
                 _binding.recyclerView.visibility = View.VISIBLE
                 foodAdapter.updateFoodWhenRefresh(foods)
             }
         })
 
-        _viewModel.foodsError.observe(viewLifecycleOwner, Observer { errorMessage ->
+        _viewModel.foodsError.observe(viewLifecycleOwner, { errorMessage ->
             errorMessage?.let {
                 if (it.isNotEmpty()) {
                     _binding.tvError.visibility = View.VISIBLE
@@ -119,7 +122,7 @@ class RecipesFragment : Fragment() {
             }
         })
 
-        _viewModel.foodsLoading.observe(viewLifecycleOwner, Observer { loading ->
+        _viewModel.foodsLoading.observe(viewLifecycleOwner, { loading ->
             loading?.let {
                 if (it) {
                     _binding.pbLoading.visibility = View.VISIBLE

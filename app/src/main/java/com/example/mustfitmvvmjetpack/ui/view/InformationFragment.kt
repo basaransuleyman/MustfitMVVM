@@ -24,6 +24,7 @@ class InformationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentInformationBinding.inflate(inflater, container, false)
+
         selectGender()
         return _binding.root
     }

@@ -15,6 +15,7 @@ class DailyMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityDailyMenuBinding.inflate(layoutInflater)
         setContentView(_binding.root)
+
         bindingItems()
     }
 

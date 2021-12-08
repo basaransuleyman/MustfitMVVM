@@ -1,5 +1,6 @@
 package com.example.mustfitmvvmjetpack.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,8 +21,7 @@ const val COUNT = "Count"
 class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
     RecyclerView.Adapter<FoodAdapter.FoodHolder>() {
 
-    class FoodHolder(val binding: FoodItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    }
+    class FoodHolder(val binding: FoodItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodHolder {
         val view = FoodItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,16 +32,13 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
 
         var totalCalories = 0
         var addCount = 0
-        val currentItem = foodsList[position]
+        val currentItem = foodsList[position].hints.firstOrNull()?.food
 
-        holder.binding.tvFoodLabel.text =
-            foodsList[position].hints.firstOrNull()?.food?.label.toString()
-        holder.binding.tvFoodCalories.text =
-            foodsList[position].hints.firstOrNull()?.food?.nutrients?.ENERC_KCAL.toString()
-        holder.binding.tvFoodCalories.text =
-            foodsList[position].hints.firstOrNull()?.food?.nutrients?.ENERC_KCAL.toString()
-        Picasso.get().load(foodsList[position].hints.firstOrNull()?.food?.image)
-            .into(holder.binding.ivFood)
+        holder.binding.apply {
+            tvFoodLabel.text = currentItem?.label.toString()
+            tvFoodCalories.text = currentItem?.nutrients?.ENERC_KCAL.toString()
+            Picasso.get().load(currentItem?.image).into(holder.binding.ivFood)
+        }
 
         holder.binding.ivAdd.setOnClickListener {
             addCount++
@@ -62,23 +59,20 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
 
         holder.binding.addToDailyFood.setOnClickListener {
             if (holder.binding.tvCount.toString().isNotEmpty() && addCount != 0) {
-                totalCalories += addCount * (foodsList.get(position).hints.firstOrNull()?.food?.nutrients?.ENERC_KCAL
-                    ?: 1)
+                totalCalories += addCount * (currentItem?.nutrients?.ENERC_KCAL ?: 1)
                 Toast.makeText(
                     holder.binding.addToDailyFood.context,
                     "Total Calories : $totalCalories",
                     Toast.LENGTH_LONG
                 ).show()
-            } else {
-                //ERROR case
             }
         }
 
         holder.binding.btnMenu.setOnClickListener {
             val intent = Intent(holder.itemView.context, DailyMenuActivity::class.java)
-            intent.putExtra(PICTURE, currentItem.hints.firstOrNull()?.food?.image)
+            intent.putExtra(PICTURE, currentItem?.image)
             intent.putExtra(CALORIE, totalCalories.toString())
-            intent.putExtra(NAME, currentItem.hints.firstOrNull()?.food?.label)
+            intent.putExtra(NAME, currentItem?.label)
             intent.putExtra(COUNT, addCount.toString())
             holder.itemView.context?.startActivity(intent)
         }
@@ -86,23 +80,14 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, FoodDetailsActivity::class.java)
             intent.apply {
-                putExtra("Label", currentItem.hints.firstOrNull()?.food?.label)
-                putExtra("Category", currentItem.hints.firstOrNull()?.food?.category)
-                putExtra("SmallIcon", currentItem.hints.firstOrNull()?.food?.image)
-                putExtra("Picture", currentItem.hints.firstOrNull()?.food?.image)
-                putExtra(
-                    "Calorie",
-                    currentItem.hints.firstOrNull()?.food?.nutrients?.ENERC_KCAL.toString()
-                )
-                putExtra(
-                    "Protein",
-                    currentItem.hints.firstOrNull()?.food?.nutrients?.PROCNT.toString()
-                )
-                putExtra(
-                    "Carbohydrate",
-                    currentItem.hints.firstOrNull()?.food?.nutrients?.CHOCDF.toString()
-                )
-                putExtra("Fat", currentItem.hints.firstOrNull()?.food?.nutrients?.FAT.toString())
+                putExtra("Label", currentItem?.label)
+                putExtra("Category", currentItem?.category)
+                putExtra("SmallIcon", currentItem?.image)
+                putExtra("Picture", currentItem?.image)
+                putExtra("Calorie", currentItem?.nutrients?.ENERC_KCAL.toString())
+                putExtra("Protein", currentItem?.nutrients?.PROCNT.toString())
+                putExtra("Carbohydrate", currentItem?.nutrients?.CHOCDF.toString())
+                putExtra("Fat", currentItem?.nutrients?.FAT.toString())
                 holder.itemView.context.startActivity(intent)
             }
         }
@@ -112,6 +97,7 @@ class FoodAdapter(private val foodsList: ArrayList<FoodApiModel>) :
         return foodsList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateFoodWhenRefresh(newFoodList: List<FoodApiModel>) {
         foodsList.clear()
         foodsList.addAll(newFoodList)

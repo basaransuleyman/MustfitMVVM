@@ -21,6 +21,7 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+
         registerClickedOnRegisterPage()
         loginClickedOnRegisterPage()
         return _binding.root
