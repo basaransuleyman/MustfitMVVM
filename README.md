@@ -32,7 +32,7 @@
 
 GSON Annotations(Serialized,Parcelize) for Networking
 
-<b>Design Pattern -> MVVM</b>
+<b>Design Pattern  MVVM</b>
 
 ![Pattern](https://i.ibb.co/6g1hGph/1-hiyp-GQVOat8-W3411-SUa-Tg.png)
 
