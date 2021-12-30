@@ -36,6 +36,6 @@ GSON Annotations(Serialized,Parcelize) for Networking
 
 ![Pattern](https://i.ibb.co/6g1hGph/1-hiyp-GQVOat8-W3411-SUa-Tg.png)
 
-## My Algorithm and flow-chart 
+## My Algorithm and Flow Chart 
 
 ![Algorithm](https://i.ibb.co/sHRYHRp/1-w-Cs-e-Ks-Epfdp83-Ndl6nx-Q.png)
