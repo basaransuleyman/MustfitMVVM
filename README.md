@@ -1,4 +1,4 @@
-# MustfitMVVMJetpack
+# MustfitMVVM
 
  ## App Demo
 
