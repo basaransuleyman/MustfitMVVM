@@ -27,15 +27,15 @@ class FoodDetailsActivity : AppCompatActivity() {
         val carbGet: String? = intent.getStringExtra("Protein")
         val fatGet: String? = intent.getStringExtra("Fat")
 
-        with(_binding){
-            _picasso.load(intent.getStringExtra("SmallIcon")).into(_binding.ivSmallIcon)
-            _picasso.load(intent.getStringExtra("Picture")).into(_binding.ivFood)
-            _binding.tvLabel.text = labelGet?.uppercase(Locale.getDefault())
-            _binding.tvCategory.text = categoryGet
-            _binding.tvCalorie.text = calorieGet
-            _binding.tvProtein.text = proteinGet
-            _binding.tvCarb.text = carbGet
-            _binding.tvFat.text = fatGet
+        with(_binding) {
+            _picasso.load(intent.getStringExtra("SmallIcon")).into(ivSmallIcon)
+            _picasso.load(intent.getStringExtra("Picture")).into(ivFood)
+            tvLabel.text = labelGet?.uppercase(Locale.getDefault())
+            tvCategory.text = categoryGet
+            tvCalorie.text = calorieGet
+            tvProtein.text = proteinGet
+            tvCarb.text = carbGet
+            tvFat.text = fatGet
         }
 
     }
