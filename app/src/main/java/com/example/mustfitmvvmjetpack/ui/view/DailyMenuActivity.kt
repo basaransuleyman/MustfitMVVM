@@ -15,7 +15,6 @@ class DailyMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityDailyMenuBinding.inflate(layoutInflater)
         setContentView(_binding.root)
-
         bindingItems()
     }
 
@@ -24,7 +23,7 @@ class DailyMenuActivity : AppCompatActivity() {
         val calorieGet: String? = intent.getStringExtra(CALORIE)
         val countGet: String? = intent.getStringExtra(COUNT)
 
-        with(_binding){
+        with(_binding) {
             _picasso.load(intent.getStringExtra(PICTURE)).into(_binding.ivFoodDaily)
             tvFoodLabelDaily.text = labelGet?.uppercase(Locale.getDefault())
             tvCaloriesDaily.text = calorieGet
@@ -34,10 +33,10 @@ class DailyMenuActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val PICTURE = "Picture"
-        const val CALORIE = "TotalCalories"
-        const val NAME = "FoodName"
-        const val COUNT = "Count"
+        private const val PICTURE = "Picture"
+        private const val CALORIE = "TotalCalories"
+        private const val NAME = "FoodName"
+        private const val COUNT = "Count"
     }
 
 }

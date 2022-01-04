@@ -40,13 +40,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-database:20.0.2'
+
     def nav_version = "2.3.5"
-    def hilt_version = "2.38.1"
+    def hilt_version = "2.40.5"
     def coroutine_lifecycle_version = "2.4.0"
     def retrofit_version = "2.9.0"
-    def coroutine_version = "1.5.1"
+    def coroutine_version = "1.6.0"
     def koin_version= "3.1.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -62,12 +61,13 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
+
     //coroutine lifecycle scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutine_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$coroutine_lifecycle_version"
 
     // retrofit
-    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
@@ -83,6 +83,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
 
     //dagger hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")

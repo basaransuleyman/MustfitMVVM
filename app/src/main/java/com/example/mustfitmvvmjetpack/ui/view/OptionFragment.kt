@@ -10,6 +10,7 @@ import com.example.mustfitmvvmjetpack.R
 import com.example.mustfitmvvmjetpack.databinding.FragmentOptionBinding
 
 class OptionFragment : Fragment() {
+
     private lateinit var _binding: FragmentOptionBinding
 
     override fun onCreateView(

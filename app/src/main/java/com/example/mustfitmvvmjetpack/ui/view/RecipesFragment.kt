@@ -38,14 +38,12 @@ class RecipesFragment : Fragment() {
     ): View {
         foodAdapter = FoodAdapter(arrayListOf())
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
-
         initializeSharedPreferences()
         bindingDefaultValue()
         bindingRecyclerView()
         observeLiveData()
         bottomTabNavigation()
         searchFood()
-
         return _binding.root
     }
 
@@ -109,7 +107,6 @@ class RecipesFragment : Fragment() {
 
     private fun observeLiveData() {
         with(_viewModel) {
-
             foodsData.observe(viewLifecycleOwner, { foods ->
                 foods?.let {
                     _binding.recyclerView.visibility = View.VISIBLE
@@ -140,7 +137,6 @@ class RecipesFragment : Fragment() {
                 }
             })
         }
-
     }
 }
 

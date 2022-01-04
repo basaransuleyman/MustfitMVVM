@@ -31,17 +31,12 @@ class ProfileFragment : Fragment() {
     private lateinit var _firebaseAuth: FirebaseAuth
     private lateinit var _fireStoreDB: FirebaseFirestore
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-
         //viewModel.getDataFromDB()
         bindingRecyclerView()
         getDataFromDB()
@@ -50,9 +45,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun bindingRecyclerView(){
-        _binding.rvProfile.layoutManager = LinearLayoutManager(activity)
-        _adapter = MustfitRecyclerAdapter(_informationArrayList)
-        _binding.rvProfile.adapter = _adapter
+        with(_binding){
+            rvProfile.layoutManager = LinearLayoutManager(activity)
+            _adapter = MustfitRecyclerAdapter(_informationArrayList)
+            rvProfile.adapter = _adapter
+        }
     }
 
     private fun bottomTabNavigation() {
@@ -84,21 +81,23 @@ class ProfileFragment : Fragment() {
                         _informationArrayList.clear()
                         val documents = snapshot.documents
                         for (document in documents) {
-                            val name = document.get("name") as String?
-                            val bodyFat = document.get("bodyFat") as String
-                            val dealWeight = document.get("dealWeight") as String
-                            val messageBodyFat = document.get("message") as String
-                            val messageLoseGainWeight = document.get("messagetwo") as String
-                            val messageCalorie = document.get("messageone") as String
-                            val post = MustfitModel(
-                                name,
-                                bodyFat,
-                                dealWeight,
-                                messageBodyFat,
-                                messageLoseGainWeight,
-                                messageCalorie
-                            )
-                            _informationArrayList.add(post)
+                            with(document){
+                                val name = get("name") as String?
+                                val bodyFat = get("bodyFat") as String
+                                val dealWeight = get("dealWeight") as String
+                                val messageBodyFat = get("message") as String
+                                val messageLoseGainWeight = get("messagetwo") as String
+                                val messageCalorie = get("messageone") as String
+                                val post = MustfitModel(
+                                    name,
+                                    bodyFat,
+                                    dealWeight,
+                                    messageBodyFat,
+                                    messageLoseGainWeight,
+                                    messageCalorie
+                                )
+                                _informationArrayList.add(post)
+                            }
                         }
                         _adapter?.notifyDataSetChanged()
                     }

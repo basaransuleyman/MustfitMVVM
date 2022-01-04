@@ -10,7 +10,6 @@ import com.example.mustfitmvvmjetpack.databinding.FragmentLoginBinding
 import com.example.mustfitmvvmjetpack.viewmodel.AuthenticationViewModel
 import org.koin.android.ext.android.inject
 
-
 class LoginFragment : Fragment() {
 
     private lateinit var _binding: FragmentLoginBinding
@@ -22,7 +21,6 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-
         loginClickedOnLoginPage()
         registerClickedOnLoginPage()
         return _binding.root
