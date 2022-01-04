@@ -25,7 +25,7 @@ import org.koin.android.ext.android.inject
 class ProfileFragment : Fragment() {
 
     private lateinit var _binding: FragmentProfileBinding
-    private val _informationArrayList: ArrayList<MustfitModel> = ArrayList()
+    private val _informationArrayList: ArrayList<MustfitModel> = ArrayList()    
     private var _adapter: MustfitRecyclerAdapter? = null
     private val _viewModel by inject<DataViewModel>()
     private lateinit var _firebaseAuth: FirebaseAuth

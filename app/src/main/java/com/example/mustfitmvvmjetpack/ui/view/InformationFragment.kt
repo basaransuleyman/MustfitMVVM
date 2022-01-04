@@ -30,20 +30,22 @@ class InformationFragment : Fragment() {
     }
 
     private fun selectGender() {
-        _binding.ivWoman.setOnClickListener {
-            _isMale = false
-            _binding.ivMan.setBackgroundColor(Color.TRANSPARENT)
-            _binding.ivWoman.setBackgroundColor(Color.YELLOW)
-        }
-        _binding.ivMan.setOnClickListener {
-            _isMale = true
-            _binding.ivWoman.setBackgroundColor(Color.TRANSPARENT)
-            _binding.ivMan.setBackgroundColor(Color.YELLOW)
-        }
-        _binding.nextButton.setOnClickListener {
-            _viewModel.mathFunction(request = helperMathRequest(), _isMale)
-            Navigation.findNavController(it)
-                .navigate(InformationFragmentDirections.actionInformationFragmentToProfileFragment())
+        with(_binding) {
+            ivWoman.setOnClickListener {
+                _isMale = false
+                ivMan.setBackgroundColor(Color.TRANSPARENT)
+                ivWoman.setBackgroundColor(Color.YELLOW)
+            }
+            ivMan.setOnClickListener {
+                _isMale = true
+                ivWoman.setBackgroundColor(Color.TRANSPARENT)
+                ivMan.setBackgroundColor(Color.YELLOW)
+            }
+            nextButton.setOnClickListener {
+                _viewModel.mathFunction(request = helperMathRequest(), _isMale)
+                Navigation.findNavController(it)
+                    .navigate(InformationFragmentDirections.actionInformationFragmentToProfileFragment())
+            }
         }
     }
 

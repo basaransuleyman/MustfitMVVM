@@ -24,10 +24,13 @@ class DailyMenuActivity : AppCompatActivity() {
         val calorieGet: String? = intent.getStringExtra(CALORIE)
         val countGet: String? = intent.getStringExtra(COUNT)
 
-        _picasso.load(intent.getStringExtra(PICTURE)).into(_binding.ivFoodDaily)
-        _binding.tvFoodLabelDaily.text = labelGet?.uppercase(Locale.getDefault())
-        _binding.tvCaloriesDaily.text = calorieGet
-        _binding.tvNumber.text = countGet
+        with(_binding){
+            _picasso.load(intent.getStringExtra(PICTURE)).into(_binding.ivFoodDaily)
+            tvFoodLabelDaily.text = labelGet?.uppercase(Locale.getDefault())
+            tvCaloriesDaily.text = calorieGet
+            tvNumber.text = countGet
+        }
+
     }
 
     companion object {

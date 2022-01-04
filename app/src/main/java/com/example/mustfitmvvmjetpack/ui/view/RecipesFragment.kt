@@ -62,21 +62,25 @@ class RecipesFragment : Fragment() {
     }
 
     private fun bindingRecyclerView() {
-        _binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        _binding.recyclerView.adapter = foodAdapter
+        with(_binding) {
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.adapter = foodAdapter
+        }
     }
 
     private fun refreshPage(foodName: String) {
-        _binding.srLayout.setOnRefreshListener {
-            _binding.recyclerView.visibility = View.GONE
-            _binding.tvError.visibility = View.GONE
-            _binding.pbLoading.visibility = View.GONE
+        with(_binding) {
+            srLayout.setOnRefreshListener {
+                recyclerView.visibility = View.GONE
+                tvError.visibility = View.GONE
+                pbLoading.visibility = View.GONE
 
-            val foodName =
-                _getPreferences.getString("foodName", foodName)?.lowercase(Locale.getDefault())
-            _binding.edSearchFood.setText(foodName)
-            _viewModel.getData(foodName!!)
-            _binding.srLayout.isRefreshing = false
+                val foodName =
+                    _getPreferences.getString("foodName", foodName)?.lowercase(Locale.getDefault())
+                edSearchFood.setText(foodName)
+                _viewModel.getData(foodName!!)
+                srLayout.isRefreshing = false
+            }
         }
     }
 
@@ -104,35 +108,39 @@ class RecipesFragment : Fragment() {
     }
 
     private fun observeLiveData() {
-        _viewModel.foodsData.observe(viewLifecycleOwner, { foods ->
-            foods?.let {
-                _binding.recyclerView.visibility = View.VISIBLE
-                foodAdapter.updateFoodWhenRefresh(foods)
-            }
-        })
+        with(_viewModel) {
 
-        _viewModel.foodsError.observe(viewLifecycleOwner, { errorMessage ->
-            errorMessage?.let {
-                if (it.isNotEmpty()) {
-                    _binding.tvError.visibility = View.VISIBLE
-                    _binding.tvError.text = errorMessage
-                } else {
-                    _binding.tvError.visibility = View.GONE
+            foodsData.observe(viewLifecycleOwner, { foods ->
+                foods?.let {
+                    _binding.recyclerView.visibility = View.VISIBLE
+                    foodAdapter.updateFoodWhenRefresh(foods)
                 }
-            }
-        })
+            })
 
-        _viewModel.foodsLoading.observe(viewLifecycleOwner, { loading ->
-            loading?.let {
-                if (it) {
-                    _binding.pbLoading.visibility = View.VISIBLE
-                    _binding.recyclerView.visibility = View.GONE
-                    _binding.tvError.visibility = View.GONE
-                } else {
-                    _binding.pbLoading.visibility = View.GONE
+            foodsError.observe(viewLifecycleOwner, { errorMessage ->
+                errorMessage?.let {
+                    if (it.isNotEmpty()) {
+                        _binding.tvError.visibility = View.VISIBLE
+                        _binding.tvError.text = errorMessage
+                    } else {
+                        _binding.tvError.visibility = View.GONE
+                    }
                 }
-            }
-        })
+            })
+
+            foodsLoading.observe(viewLifecycleOwner, { loading ->
+                loading?.let {
+                    if (it) {
+                        _binding.pbLoading.visibility = View.VISIBLE
+                        _binding.recyclerView.visibility = View.GONE
+                        _binding.tvError.visibility = View.GONE
+                    } else {
+                        _binding.pbLoading.visibility = View.GONE
+                    }
+                }
+            })
+        }
+
     }
 }
 
