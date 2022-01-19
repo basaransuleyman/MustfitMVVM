@@ -2,7 +2,9 @@ package com.example.mustfitmvvmjetpack.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mustfitmvvmjetpack.R
 import com.example.mustfitmvvmjetpack.databinding.ProfileItemsBinding
 import com.example.mustfitmvvmjetpack.model.MustfitModel
 
@@ -13,8 +15,9 @@ class MustfitRecyclerAdapter(private val informationList: ArrayList<MustfitModel
         parent: ViewGroup,
         viewType: Int
     ): InformationHolder {
-        val binding = ProfileItemsBinding.inflate(
+        val binding = DataBindingUtil.inflate<ProfileItemsBinding>(
             LayoutInflater.from(parent.context),
+            R.layout.profile_items,
             parent,
             false
         )
@@ -22,15 +25,7 @@ class MustfitRecyclerAdapter(private val informationList: ArrayList<MustfitModel
     }
 
     override fun onBindViewHolder(holder: InformationHolder, position: Int) {
-        val currentItem = informationList[position]
-        holder.binding.apply {
-            tvName.text = currentItem.name
-            tvBodyFat.text = currentItem.bodyFat.toString()
-            tvDealWeight.text = currentItem.dealWeight.toString()
-            tvBodyFatMessage.text = currentItem.messageBodyFat
-            tvDailyCalorie.text = currentItem.messageCalorie
-            tvLoseGainMessage.text = currentItem.messageLoseGainWeight
-        }
+        holder.binding.profile = informationList[position]
     }
 
     override fun getItemCount(): Int {
